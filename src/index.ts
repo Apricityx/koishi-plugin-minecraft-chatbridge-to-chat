@@ -15,6 +15,7 @@ export const Config: Schema<Config> = Schema.object({
 
 export function apply(ctx: Context, config: Config) {
   const logger = ctx.logger('Minecraft') // 创建logger用于输出Koishi日志
+  const logger_log = ctx.logger('Log') // 创建logger用于输出Koishi日志
   ctx.on('dispose', () => {
     // 在插件停用时关闭端口
     server.close()
@@ -33,19 +34,19 @@ export function apply(ctx: Context, config: Config) {
         adapter = "qqguild";
         break;
   }
-  console.log("已选择平台：" + adapter)
+  logger_log.success("已选择平台：" + adapter)
   const groupId :number = +config["groupId"]
   const broadcastTo = adapter + ':' + groupId
   const port = config["port"]
   const server = new WebSocket.Server({port: port});
-  console.log('正在监听端口' + port);
-  console.log("已选择：" + broadcastTo)
+  logger_log.success('正在监听端口' + port);
+  logger_log.success("已选择：" + broadcastTo)
   server.on('connection', ws => {
     ws.on('message', message => {
       let str = JSON.parse(message.toString('utf-8'))
       str = str['params']['message']
       //将
-      logger.success(`收到消息: ${str}`);
+      logger.info(`收到消息: ${str}`);
       if (adapter === "kook") {
         str = str.replace(/</g, "");
         str = str.replace(/>/g, ":");
@@ -54,7 +55,7 @@ export function apply(ctx: Context, config: Config) {
     });
 
     ws.on('close', () => {
-      console.log('连接已关闭');
+      logger_log.warn('连接已关闭');
     });
 
     ctx.on('message', (session) => {

@@ -1,19 +1,30 @@
 {
-  "name": "koishi-plugin-chatbridge-adapter",
-  "description": "chatbridge-adapter",
-  "version": "0.0.1",
+  "name": "koishi-plugin-minecraft-chatbridge-to-chat",
+  "description": "此Koishi插件对接了MCDR的Chatbridge插件，在原版Chatbridge的gocq配置不变的情况下，仅需修改ws地址，即可完美对接Chatbridge实现消息互通",
+  "version": "1.0.1",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
+  "homepage": "https://example.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alice/koishi-plugin-example.git"
+  },
   "files": [
     "lib",
     "dist"
   ],
   "license": "MIT",
   "scripts": {},
+  "contributors": [
+    "Apricityx <apricityx@qq.com>"
+  ],
   "keywords": [
     "chatbot",
     "koishi",
-    "plugin"
+    "plugin",
+    "minecraft",
+    "chatbridge",
+    "MCDR"
   ],
   "peerDependencies": {
     "koishi": "^4.15.5"
