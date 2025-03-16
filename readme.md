@@ -1,6 +1,8 @@
 # koishi-plugin-minecraft-chatbridge-to-chat
 
-[![npm](https://img.shields.io/npm/v/koishi-plugin-chatbridge-adapter?style=flat-square)](https://www.npmjs.com/package/koishi-plugin-minecraft-chatbridge-to-chat)
+[![npm](https://img.shields.io/npm/v/koishi-plugin-minecraft-chatbridge-to-chat?style=flat-square)](https://www.npmjs.com/package/koishi-plugin-minecraft-chatbridge-to-chat)
+
+## 因为tx风控的问题，现在推荐使用Chatbridge的GOCQ服务直接连接到另外实现了Onebot协议的软件，而不是GOCQHTTP，一样可以完美完成对接，此项目年久失修，不确定功能是否可以正常运行
 
 这个插件基于MCDR的Chatbridge插件和koishi，实现了MC和其他聊天平台互通
 
@@ -12,9 +14,9 @@ Koishi: (https://koishi.chat/zh-CN/)
 
 Chatbridge端配置方法和原来的Gocq一样，只是把原先gocq的ws连接地址改为Koishi地址+此插件配置页面指定端口
 
-关于Chatbridge的部署可以参考这篇帖子：(https://blog.mctown.tech/2022/11/17/%E5%90%8C%E6%AD%A5%E4%B8%8D%E5%90%8C%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%97%B4%E7%9A%84%E6%B6%88%E6%81%AF-Chatbridge/)
+关于Chatbridge的部署可以参考这篇帖子：(https://blog.apricityx.top/2022/11/17/mcdr-chatbridge/)
 
--一些注意事项：
+- 一些注意事项：
 
 Chatbridge的ws老是连不上，请检查是否是用docker部署，如果是，记得把端口映射到宿主机上，不然会出现无法连接的情况
 
